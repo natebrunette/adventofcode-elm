@@ -2,13 +2,13 @@ module AOC.Year2020.Day01 exposing (part1, part2)
 
 import OrderedDict exposing (OrderedDict)
 import Set exposing (Set)
-import Shared.List
+import Shared.ListExt as ListExt
 
 
 part1 : List String -> String
 part1 input =
     input
-        |> Shared.List.toIntList
+        |> ListExt.toIntList
         |> findTwo Set.empty 2020
         |> String.fromInt
 
@@ -16,7 +16,7 @@ part1 input =
 part2 : List String -> String
 part2 input =
     input
-        |> Shared.List.toIntList
+        |> ListExt.toIntList
         |> List.sort
         |> List.indexedMap Tuple.pair
         |> OrderedDict.fromList
