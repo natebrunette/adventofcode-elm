@@ -1,0 +1,10 @@
+module AOC.Year###YEAR.Day###DAY exposing (part1, part2)
+
+
+part1 : List String -> String
+part1 input =
+    Debug.todo "implement me"
+
+part2 : List String -> String
+part2 input =
+    Debug.todo "implement me"

@@ -1,0 +1,38 @@
+module Test.AOC.Year###YEAR.Day###DAYTest exposing (suite)
+
+import AOC.Year###YEAR.Day###DAY exposing (part1, part2)
+import Expect
+import Test exposing (Test, describe, test)
+
+
+suite : Test
+suite =
+    describe "AOC ###YEAR - Day ###DAY"
+        [ test "part 1" <|
+            \_ ->
+                Expect.equal "" (part1 (input |> toList))
+        , test "part 2" <|
+            \_ ->
+                Expect.equal "" (part2 (input |> toList))
+        ]
+
+
+toList : String -> List String
+toList string =
+    string
+        |> String.split "\n"
+        |> List.map String.trim
+
+
+sample : String
+sample =
+    """
+
+    """
+
+
+input : String
+input =
+    """
+###INPUT
+    """
