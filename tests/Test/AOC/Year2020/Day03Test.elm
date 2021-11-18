@@ -2,6 +2,7 @@ module Test.AOC.Year2020.Day03Test exposing (suite)
 
 import AOC.Year2020.Day03 exposing (part1, part2)
 import Expect
+import List.Extra
 import Test exposing (Test, describe, test)
 
 
@@ -25,7 +26,9 @@ toList string =
     string
         |> String.split "\n"
         |> List.map String.trim
-        |> List.filter (String.isEmpty >> not)
+        |> List.drop 1
+        |> List.Extra.init
+        |> Maybe.withDefault []
 
 
 sample : String
