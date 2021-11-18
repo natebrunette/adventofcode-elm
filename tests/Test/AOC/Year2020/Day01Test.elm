@@ -25,6 +25,7 @@ toList string =
     string
         |> String.split "\n"
         |> List.map String.trim
+        |> List.filter (String.isEmpty >> not)
 
 
 sample : String

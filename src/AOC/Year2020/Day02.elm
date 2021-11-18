@@ -36,19 +36,19 @@ validPassword string =
                 |> String.split " "
 
         minMax =
-            stringParts |> ListExt.at 0 "" |> String.split "-"
+            stringParts |> ListExt.at 0 |> String.split "-"
 
         min =
-            minMax |> ListExt.at 0 "" |> StringExt.toInt 100
+            minMax |> ListExt.at 0 |> StringExt.toInt
 
         max =
-            minMax |> ListExt.at 1 "" |> StringExt.toInt -100
+            minMax |> ListExt.at 1 |> StringExt.toInt
 
         search =
-            stringParts |> ListExt.at 1 "" |> String.left 1
+            stringParts |> ListExt.at 1 |> String.left 1
 
         password =
-            stringParts |> ListExt.at 2 ""
+            stringParts |> ListExt.at 2
 
         count =
             password |> StringExt.toStringList |> List.filter (\char -> char == search) |> List.length
@@ -64,27 +64,27 @@ validPasswordFixed string =
                 |> String.split " "
 
         firstSecond =
-            stringParts |> ListExt.at 0 "" |> String.split "-"
+            stringParts |> ListExt.at 0 |> String.split "-"
 
         firstIndex =
-            firstSecond |> ListExt.at 0 "" |> StringExt.toInt 0
+            firstSecond |> ListExt.at 0 |> StringExt.toInt
 
         secondIndex =
-            firstSecond |> ListExt.at 1 "" |> StringExt.toInt 0
+            firstSecond |> ListExt.at 1 |> StringExt.toInt
 
         search =
-            stringParts |> ListExt.at 1 "" |> String.left 1
+            stringParts |> ListExt.at 1 |> String.left 1
 
         password =
-            stringParts |> ListExt.at 2 ""
+            stringParts |> ListExt.at 2
 
         passwordList =
             password |> StringExt.toStringList
 
         firstCorrect =
-            ListExt.at (firstIndex - 1) "" passwordList == search
+            ListExt.at (firstIndex - 1) passwordList == search
 
         secondCorrect =
-            ListExt.at (secondIndex - 1) "" passwordList == search
+            ListExt.at (secondIndex - 1) passwordList == search
     in
     xor firstCorrect secondCorrect

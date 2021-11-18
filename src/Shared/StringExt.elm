@@ -1,9 +1,14 @@
 module Shared.StringExt exposing (toInt, toStringList)
 
 
-toInt : Int -> String -> Int
-toInt default string =
-    string |> String.toInt |> Maybe.withDefault default
+toInt : String -> Int
+toInt string =
+    case string |> String.toInt of
+        Just a ->
+            a
+
+        Nothing ->
+            Debug.todo ("Could convert '" ++ string ++ "' to int")
 
 
 toStringList : String -> List String

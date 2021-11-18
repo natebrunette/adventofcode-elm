@@ -9,6 +9,11 @@ toIntList strings =
         |> List.filterMap String.toInt
 
 
-at : Int -> a -> List a -> a
-at index default list =
-    list |> List.Extra.getAt index |> Maybe.withDefault default
+at : Int -> List a -> a
+at index list =
+    case list |> List.Extra.getAt index of
+        Just a ->
+            a
+
+        Nothing ->
+            Debug.todo ("Could not get index at '" ++ (index |> String.fromInt) ++ "' of list " ++ Debug.toString list)
