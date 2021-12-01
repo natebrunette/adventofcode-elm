@@ -9,7 +9,10 @@ import Test exposing (Test, describe, test)
 suite : Test
 suite =
     describe "AOC ###YEAR - Day ###DAY"
-        [ test "part 1" <|
+        [ test "part 1 sample" <|
+            \_ ->
+                Expect.equal "" (part1 (sample |> toList))
+        , test "part 1" <|
             \_ ->
                 Expect.equal "" (part1 (input |> toList))
         , test "part 2" <|
