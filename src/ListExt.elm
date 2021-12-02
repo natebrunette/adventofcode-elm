@@ -1,4 +1,4 @@
-module Shared.ListExt exposing (at, toIntList)
+module ListExt exposing (at, toIntList)
 
 import List.Extra
 

@@ -1,7 +1,7 @@
 module AOC.Year2021.Day02 exposing (part1, part2)
 
 import Parser exposing ((|.), (|=), Parser)
-import Shared.TupleExt as TupleExt
+import TupleExt
 
 
 type Direction

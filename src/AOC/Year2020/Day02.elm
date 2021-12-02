@@ -1,8 +1,8 @@
 module AOC.Year2020.Day02 exposing (part1, part2)
 
 import Dict exposing (Dict)
-import Shared.ListExt as ListExt
-import Shared.StringExt as StringExt
+import ListExt
+import StringExt
 
 
 type alias PasswordRule =

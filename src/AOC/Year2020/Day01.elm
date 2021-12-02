@@ -1,8 +1,8 @@
 module AOC.Year2020.Day01 exposing (part1, part2)
 
+import ListExt
 import OrderedDict exposing (OrderedDict)
 import Set exposing (Set)
-import Shared.ListExt as ListExt
 
 
 part1 : List String -> String

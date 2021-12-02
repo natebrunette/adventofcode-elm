@@ -1,7 +1,7 @@
 module AOC.Year2021.Day01 exposing (part1, part2)
 
 import List.Extra
-import Shared.ListExt as ListExt
+import ListExt
 
 
 part1 : List String -> String

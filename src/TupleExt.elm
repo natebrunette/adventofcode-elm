@@ -1,4 +1,4 @@
-module Shared.TupleExt exposing (product)
+module TupleExt exposing (product)
 
 
 product : ( Int, Int ) -> Int

@@ -1,6 +1,6 @@
 module AOC.Year2020.Day03 exposing (part1, part2)
 
-import Shared.ListExt as ListExt
+import ListExt
 
 
 type alias Grid =

@@ -1,4 +1,4 @@
-module Shared.StringExt exposing (toInt, toStringList)
+module StringExt exposing (toInt, toStringList)
 
 
 toInt : String -> Int
