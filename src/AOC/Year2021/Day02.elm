@@ -1,7 +1,6 @@
 module AOC.Year2021.Day02 exposing (part1, part2)
 
 import Parser exposing ((|.), (|=), Parser)
-import TupleExt
 
 
 type Direction
@@ -10,25 +9,42 @@ type Direction
     | Up Int
 
 
+type alias Position =
+    { horizontal : Int
+    , depth : Int
+    , aim : Int
+    }
+
+
+newPosition : Position
+newPosition =
+    Position 0 0 0
+
+
+positionProduct : Position -> Int
+positionProduct position =
+    position.horizontal * position.depth
+
+
 part1 : List String -> String
 part1 input =
     input
         |> List.map (Parser.run directionParser)
         |> List.map (Result.withDefault (Forward 0))
         |> List.foldl
-            (\direction acc ->
+            (\direction position ->
                 case direction of
                     Forward num ->
-                        Tuple.mapFirst ((+) num) acc
+                        { position | horizontal = position.horizontal + num }
 
                     Down num ->
-                        Tuple.mapSecond ((+) num) acc
+                        { position | depth = position.depth + num }
 
                     Up num ->
-                        Tuple.mapSecond (\val -> val - num) acc
+                        { position | depth = position.depth - num }
             )
-            ( 0, 0 )
-        |> TupleExt.product
+            newPosition
+        |> positionProduct
         |> String.fromInt
 
 
@@ -38,27 +54,19 @@ part2 input =
         |> List.map (Parser.run directionParser)
         |> List.map (Result.withDefault (Forward 0))
         |> List.foldl
-            (\direction acc ->
-                let
-                    position =
-                        Tuple.first acc
-
-                    aim =
-                        Tuple.second acc
-                in
+            (\direction position ->
                 case direction of
                     Forward num ->
-                        ( Tuple.mapBoth ((+) num) ((+) (num * aim)) position, aim )
+                        { position | horizontal = position.horizontal + num, depth = position.depth + (position.aim * num) }
 
                     Down num ->
-                        ( position, aim + num )
+                        { position | aim = position.aim + num }
 
                     Up num ->
-                        ( position, aim - num )
+                        { position | aim = position.aim - num }
             )
-            ( ( 0, 0 ), 0 )
-        |> Tuple.first
-        |> TupleExt.product
+            newPosition
+        |> positionProduct
         |> String.fromInt
 
 
