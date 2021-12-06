@@ -1,4 +1,4 @@
-module StringExt exposing (toInt, toStringList)
+module StringExt exposing (groupOnDoubleNewline, toInt, toStringList)
 
 
 toInt : String -> Int
@@ -14,3 +14,11 @@ toInt string =
 toStringList : String -> List String
 toStringList string =
     string |> String.toList |> List.map String.fromChar
+
+
+groupOnDoubleNewline : List String -> List String
+groupOnDoubleNewline strings =
+    strings
+        |> String.join "\n"
+        |> String.split "\n\n"
+        |> List.map String.trim
