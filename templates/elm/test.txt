@@ -12,6 +12,9 @@ suite =
         [ test "part 1 sample" <|
             \_ ->
                 Expect.equal "" (part1 (sample |> toList))
+        , test "part 2 sample" <|
+            \_ ->
+                Expect.equal "" (part2 (sample |> toList))
         , test "part 1" <|
             \_ ->
                 Expect.equal "" (part1 (input |> toList))
