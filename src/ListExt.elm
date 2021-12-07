@@ -1,4 +1,4 @@
-module ListExt exposing (at, toIntList)
+module ListExt exposing (at, max, min, toIntList)
 
 import List.Extra
 
@@ -17,3 +17,13 @@ at index list =
 
         Nothing ->
             Debug.todo ("Could not get index at '" ++ (index |> String.fromInt) ++ "' of list " ++ Debug.toString list)
+
+
+min : comparable -> List comparable -> comparable
+min default list =
+    list |> List.minimum |> Maybe.withDefault default
+
+
+max : comparable -> List comparable -> comparable
+max default list =
+    list |> List.maximum |> Maybe.withDefault default
