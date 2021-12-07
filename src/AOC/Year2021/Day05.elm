@@ -1,6 +1,7 @@
 module AOC.Year2021.Day05 exposing (part1, part2)
 
 import Dict exposing (Dict)
+import DictExt
 import List.Extra
 import Parser exposing ((|.), (|=), Parser)
 
@@ -63,7 +64,7 @@ addPointsBetweenLine ( a, b ) dict =
             else
                 createDiagonalPoints [ point1 ] point2 ( 1, -1 )
     in
-    points |> List.map pointToString |> List.foldl addOrIncrement dict
+    points |> List.map pointToString |> List.foldl DictExt.increment dict
 
 
 createDiagonalPoints : List Point -> Point -> ( Int, Int ) -> List Point
@@ -78,11 +79,6 @@ createDiagonalPoints points endingPoint ( dirX, dirY ) =
 
         [] ->
             points
-
-
-addOrIncrement : String -> Dict String Int -> Dict String Int
-addOrIncrement key dict =
-    dict |> Dict.get key |> Maybe.withDefault 0 |> (\num -> Dict.insert key (num + 1) dict)
 
 
 pointToString : Point -> String
