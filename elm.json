@@ -14,7 +14,8 @@
             "elm-community/list-extra": "8.5.1",
             "elm-community/maybe-extra": "5.2.1",
             "icidasset/elm-binary": "2.1.0",
-            "j-maas/elm-ordered-containers": "1.0.0"
+            "j-maas/elm-ordered-containers": "1.0.0",
+            "stoeffel/set-extra": "1.2.3"
         },
         "indirect": {
             "elm/json": "1.1.3",
