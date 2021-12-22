@@ -20,7 +20,7 @@ suite =
                 Expect.equal "478" (part1 (input |> toList))
         , test "part 2" <|
             \_ ->
-                Expect.equal "" (part2 (input |> toList))
+                Expect.equal "1327014" (part2 (input |> toList))
         ]
 
 

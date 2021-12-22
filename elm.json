@@ -15,6 +15,7 @@
             "elm-community/maybe-extra": "5.2.1",
             "icidasset/elm-binary": "2.1.0",
             "j-maas/elm-ordered-containers": "1.0.0",
+            "mhoare/elm-stack": "3.1.2",
             "stoeffel/set-extra": "1.2.3"
         },
         "indirect": {
